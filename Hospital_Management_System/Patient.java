@@ -2,6 +2,8 @@ package Hospital_Management_System;
 
 import java.sql.*;
 import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class Patient {
     private Connection connection; // Removed 'static' to keep it instance-based
@@ -36,7 +38,7 @@ public class Patient {
                 System.out.println("Failed to add Patient.");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("AddPatient Error" + e.getMessage());
         }
     }
 
@@ -60,7 +62,7 @@ public class Patient {
                 System.out.println("+------------+--------------------+----------+------------+");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("ViewPatients Error : " + e.getMessage());
         }
     }
 
@@ -73,7 +75,7 @@ public class Patient {
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet.next(); // Returns true if patient exists
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Check is Error" + e.getMessage());
         }
         return false;
     }
