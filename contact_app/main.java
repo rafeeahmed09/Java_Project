@@ -3,7 +3,7 @@ package contact_app;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-// upadte class name to Main
+
 public class main {
     static void main(String[] args) {
 
