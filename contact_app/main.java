@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class main {
     static void main(String[] args) {
 
-        // removed unused contactManager
-        // ContactManager cm = new ContactManager();
+
+
         // contactsJDBC cs = new contactsJDBC();
 
         Scanner sc = new Scanner(System.in);
@@ -56,7 +56,7 @@ public class main {
                     name = sc.nextLine();
                     contactsJDBC.Search(name);
                     // read(1)
-                    // cm.search(sc.nextLine());
+
 
                     break;
 
@@ -65,7 +65,7 @@ public class main {
                     name = sc.nextLine();
                     contactsJDBC.delete(name);
                     // read(1)
-                    // cm.delete(sc.nextLine());
+
                     break;
 
                 case "4":
@@ -77,13 +77,22 @@ public class main {
                         e.printStackTrace();
                     }
                     // read(1)
-                    // cm.viewAll();
+
                     break;
                 case "5":
-                    System.out.println("Enter name to update:");
-                    String nameofupdata = sc.nextLine();
-                    // read(1)
-                    // cm.updata(nameofupdata, sc);
+                    System.out.print("Enter the NAME of the contact you want to update: ");
+                    String targetName = sc.nextLine();
+
+                    System.out.println("Enter NEW details:");
+                    System.out.print("New Phone: ");
+                    String phone = sc.nextLine();
+                    System.out.print("New Personal Email: "); personalEmail = sc.nextLine();
+                    System.out.print("New Work Email: "); workEmail = sc.nextLine();
+                    System.out.print("New Address: "); address = sc.nextLine();
+
+                    // Calling the update method in JDBC class
+                    contactsJDBC.updata(targetName, phone, personalEmail, workEmail, address);
+
 
                 default:
                     System.out.println("Invalid  input");
