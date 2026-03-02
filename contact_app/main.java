@@ -9,7 +9,7 @@ public class main {
 
 
 
-        // contactsJDBC cs = new contactsJDBC();
+
 
         Scanner sc = new Scanner(System.in);
         while (true) {
