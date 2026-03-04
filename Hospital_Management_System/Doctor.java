@@ -1,55 +1,50 @@
 package Hospital_Management_System;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Scanner;
+
+// id , Name, specialization, Added new Doctor in Hospital
 
 public class Doctor {
-    private Connection connection; // Removed 'static' to keep it instance-based
+     private int id;
+     private String name;
+     private int age;
+     private  String specialization;
 
-
-    public Doctor(Connection connection) {
-        this.connection = connection;
-
+    public Doctor(int id, String specialization, int age, String name) {
+        this.id = id;
+        this.specialization = specialization;
+        this.age = age;
+        this.name = name;
     }
 
-
-    // 2. View All Doctor
-    public void viewPatients() {
-        String query = "SELECT * FROM Doctor";
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            System.out.println("Doctor: ");
-            System.out.println("+------------+--------------------+----------+-----");
-            System.out.println("| Doctor Id | Name               | Specialization |");
-            System.out.println("+------------+--------------------+----------+-----");
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String specialization = resultSet.getString("specialization");
-                // Fixed the printf logic for table alignment
-                System.out.printf("|%-12s|%-20s|%-18s|\n", id, name, specialization);
-                System.out.println("+------------+--------------------+----------+-----");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public int getId() {
+        return id;
     }
 
-    // 3. Check if Patient Exists
-    public boolean getPatientById(int id) {
-        String query = "SELECT * FROM Doctor WHERE id = ?";
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            return resultSet.next(); // Returns true if patient exists
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 }
