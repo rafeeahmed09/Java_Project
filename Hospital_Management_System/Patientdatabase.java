@@ -1,5 +1,6 @@
 package Hospital_Management_System;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -52,6 +53,26 @@ public class Patientdatabase {
 
         }
 
+    }
+    // update
+    public static  void  update(Patient ps){
+        try(Connection con = DriverManager.getConnection(url,user,password);
+           PreparedStatement pstmt = con.prepareStatement("UPDATE Patient set id=?, name=?,age=?,Gneder=?")){
+            pstmt.setString(1,ps.getId());
+            pstmt.setString(2,ps.getName());
+            pstmt.setString(3,ps.getAge());
+            pstmt.setString(4,ps.getGender());
+
+            int row = pstmt.executeUpdate();
+            if (row > 0){
+                System.out.println("Success updated" + row);
+            }else {
+                System.out.println("NOT Update " + row);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
     // Search :
