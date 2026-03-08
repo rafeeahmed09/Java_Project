@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class contactsJDBC {
-
     private static final String URL = "jdbc:mysql://localhost:3306/appContact";
     private static final String user = "root";
     private static final String password = "1234567890";
