@@ -13,6 +13,8 @@ create table Contacts(
 select *
 from Contacts;
 
+ 
+
 insert into Contacts(id, name,Phone,PersonalEmail,workEmail,Address)
 values
     (1,  'Alice Johnson',    '555-0101', 'alice.j@gmail.com',      'alice.johnson@company.com',   '123 Maple St, Springfield, IL 62701'),
