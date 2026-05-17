@@ -13,23 +13,23 @@ public class contactsJDBC {
     private static final String user = "root";
     private static final String password = "1234567890";
 
-    // 1. Table step
-//    public static void setupDatabase() {
-//        String sql = "CREATE TABLE IF NOT EXISTS contacts (" +
-//                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-//                "name TEXT, " +
-//                "phone TEXT, " +
-//                "personalEmail TEXT NOT NULL," +
-//                "WorkEmail TEXT NOT NULL ," +
-//                "address TEXT)";
-//
-//        try (Connection conn = DriverManager.getConnection(URL, user, password);
-//             Statement stmt = conn.createStatement()) {
-//            stmt.execute(sql);
-//        } catch (SQLException e) {
-//            System.out.println("DB Setup Error: " + e.getMessage());
-//        }
-//    }
+    1. Table step
+   public static void setupDatabase() {
+       String sql = "CREATE TABLE IF NOT EXISTS contacts (" +
+               "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+               "name TEXT, " +
+               "phone TEXT, " +
+               "personalEmail TEXT NOT NULL," +
+               "WorkEmail TEXT NOT NULL ," +
+               "address TEXT)";
+
+       try (Connection conn = DriverManager.getConnection(URL, user, password);
+            Statement stmt = conn.createStatement()) {
+           stmt.execute(sql);
+       } catch (SQLException e) {
+           System.out.println("DB Setup Error: " + e.getMessage());
+       }
+   }
 
     // 2 ADD Contact : saars 5 fields ke sath
     public static void add(String name, String phone, String personalEmail, String workEmail, String Address) {
